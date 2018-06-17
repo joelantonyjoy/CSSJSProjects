@@ -1,0 +1,25 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-color: black;
+	color: white;
+}
+
+#clock{
+	font-size:8.3vh;
+	height: 10vh; 
+	text-align: center;
+	margin: 45vh auto 45vh auto;
+}
+#hr{
+	color: red;
+}
+#min{
+	color: tomato;
+}
+#sec{
+	color: red;
+}
+.dots{
+
+}

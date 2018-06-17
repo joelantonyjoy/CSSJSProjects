@@ -1,0 +1,32 @@
+.container{
+	max-width: 600px;
+
+	margin: 25px auto;
+}
+
+#header{
+	background-color:yellow;
+	text-align: center;
+	padding:25px;
+	min-height: 220px;
+}
+
+.square{
+	height: 100px;
+	width: 30%;
+	transition: 0.3s;
+	margin:1.6%;
+}
+#tof{
+	
+	background-color: #999900;
+	margin: 20px;
+	color: white;
+	font-size: 25px;
+
+
+}
+#options>*{
+	display: inline-block;
+	margin-bottom: 15px;
+}
