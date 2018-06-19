@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Vue Practice</title>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<style type="text/css">
+html{
+	padding:0;
+	margin: 0;
+}
+body{
+	margin:0;
+	padding: 0;
+	background-color:black;
+	opacity: 0.9;
+	color: white;
+	text-align: center;
+}
+	#to-do-list{
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%);
+		overflow: hidden;
+		width:80%;
+		max-width: 500px;
+		margin-top: 100px;
+
+	}
+	.del{
+		float: right;
+
+	}
+	}
+	input:hover{
+		opacity: 0.8;
+	}
+	button:hover{
+		background-color: red;
+		color: white;
+		border-radius: 5px;
+	}
+	tr{
+		padding: 5px;
+		position: relative;
+		min-height: 25px;
+
+	}
+	#item{
+		float: left;
+	}
+	td{
+
+	}
+	table{
+		width: 100%;
+		text-align: center;
+		color: black;
+		list-style-type: none;
+		padding: 0;
+		border-collapse: collapse;
+		margin-bottom: 5px;
+		
+	
+	}
+	tr:nth-child(odd){
+		background-color: orange
+	}
+	tr:nth-child(even){
+		background-color: tomato;
+	}
+</style>
+
+</head>
+<body>
+<div id="to-do-list">
+<h1>Your To-Do List</h1>
+<form v-on:submit.prevent="addItem">
+	<input v-model="newitem"
+	placeholder="Add a to-do item">
+	<button id="adder">Add</button>
+</form>
+<ul>
+	<todo-component
+	v-for="(todo,index) in todos"
+	v-bind:itemname=todo.item
+	v-bind:key=todo.id
+	v-on:remove="todos.splice(index,1)">
+		
+	</todo-component>
+</ul>
+	
+</div>
+<script type="text/javascript">
+Vue.component('todo-component', {
+	props: ['itemname'],
+  template: 
+  	"<table><tr><td class=\"item\">{{ itemname }}</td> <td class=\"del\"><button v-on:click=\"$emit('remove')\">X</button></td></tr></table>"
+  })
+
+var app=new Vue({
+	el:"#to-do-list",
+	
+	data:{
+		newitem:"",
+		todos:[
+		{
+			item:"Make an app",
+			id:1
+		},
+		{
+			item:"Study for exam",
+			id:2
+		}
+		],
+		
+	count:3
+	},
+	methods:{
+		addItem:function(){
+			if(this.newitem){
+			this.todos.push({id:this.count++,item:this.newitem})
+			this.newitem=''
+				}
+			}
+	}
+
+})
+</script>
+
+</body>
+</html>
