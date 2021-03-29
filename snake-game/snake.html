@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    #canvas{
+        width: 608px;
+        height: 608px;
+        border: 1px solid black;
+        background:url('grid.png');
+        background-size: contain;
+    }
+</style>
+<body>
+    <h1>Snake Game</h1>
+    <canvas id="canvas" width="608" height="608"></canvas>
+</body>
+<script src="snake.js"></script>
+</html>

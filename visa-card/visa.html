@@ -1,0 +1,138 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: blue;
+        background-image: linear-gradient(to right top, #65dfc9,#6cdbfd);
+    }
+    .visa{
+        position: relative;
+        width: 476px;
+        height: 300px;
+        display: flex;
+        padding: 48px 32px 32px;
+        justify-content: space-between;
+        flex-direction: column;
+        border-radius: 16px;
+        backdrop-filter: blur(8px);
+        background-image: linear-gradient(to right top, rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.3));
+    }
+    .circle1{
+        position: absolute;
+        top:-30;
+        left: -30;
+        width: 100px;
+        height: 100px;
+        background-image: linear-gradient(to right top, rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.144));
+        border-radius: 50%;
+        z-index: -1;
+    }
+    .circle2{
+        position: absolute;
+        bottom:-30;
+        right: 60;
+        width: 100px;
+        height: 100px; background-image: linear-gradient(to top right, rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.3));
+        border-radius: 50%;
+        z-index: -1;
+    }
+    .visa__type{
+        color:rgb(40 128 144);
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-weight: 100;
+    }
+    .visa__chip{
+        width: 40px;
+    }
+    .visa__number{
+        display: flex;
+        font-family: 'Times New Roman', Times, serif;
+        justify-content: space-between;
+        font-size: 32px;
+        position: relative;
+        color:#15579f;
+    }
+    .visa__number span{
+        letter-spacing: 4px;
+    }
+    .visa__owner{
+        color: #908551;
+        letter-spacing: 4px;
+        font-weight: 100;
+        text-transform: uppercase;
+    }
+    .visa__details{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .visa__logo{
+        width: 80px;
+    }
+    .visa__valid{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 20%;
+        text-transform: uppercase;
+        align-items: center;
+        color: rgb(138 138 138);
+    }
+    .visa__valid span:first-child{
+        font-size: 8px;
+    }
+</style>
+<body>
+    
+    <div class="visa">
+        <div class="circle1"></div>
+    <div class="circle2"></div>
+        <h3 class="visa__type">
+            Platinum Member
+        </h3>
+        <div>
+            <img class="visa__chip" src="chip.png" alt="">
+            <div class="visa__number">
+                <span class="number-one">
+                    3456
+                </span>
+                <span class="number-one">
+                    3456
+                </span>
+                <span class="number-one">
+                    3456
+                </span>
+                <span class="number-one">
+                    3456
+                </span>
+            </div>
+        </div>
+       
+        <div class="visa__details">
+            <h3 class="visa__owner">
+                Joel Antony Joy
+            </h3>
+            <div class="visa__valid">
+               <span>Good thru</span>
+               <span>12/20</span> 
+            </div>
+            <img class="visa__logo" src="visa.png" alt="">
+        </div>
+        
+        
+    </div>
+</body>
+</html>
