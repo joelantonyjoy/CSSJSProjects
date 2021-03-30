@@ -23,9 +23,36 @@
         background:url('grid.png');
         background-size: contain;
     }
+    .scoreboard{
+        display: flex;
+        width: 608px;
+        justify-content: space-between;
+        padding-bottom:16px;
+    }
+    .scoreCard{
+        color: #7b7a7a;
+        border: 1px solid red;
+        padding: 8px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 </style>
 <body>
     <h1>Snake Game</h1>
+    <div class="scoreboard">
+        <div class="scoreCard">
+            <h3>Score</h3>
+            <p id="score">0</p>
+        </div>
+        <div class="scoreCard">
+            <h3>Best</h3>
+            <p id="bestScore">0</p>
+        </div>
+        <!-- <h3>Score : <span id="score">0</span></h3>
+        <h3>High Score : <span id="highScore">0</span></h3> -->
+    </div>
+    
     <canvas id="canvas" width="608" height="608"></canvas>
 </body>
 <script src="snake.js"></script>

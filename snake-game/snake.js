@@ -38,6 +38,16 @@ function moveSnake(e){
 }
 var direction = 'RIGHT';
 var interval = setInterval(draw,150);
+var scoreValue = 0;
+var score = document.getElementById('score');
+var bestScore = document.getElementById('bestScore');
+var bestScoreValue = 0;
+if(localStorage.getItem('bestScoreValue') == null){
+    localStorage.setItem('bestScoreValue',0);
+} else{
+    bestScoreValue = localStorage.getItem('bestScoreValue');
+    bestScore.innerText = bestScoreValue;
+}
 draw();
 function draw(){
     if( snake[0].x >= 19*width || 
@@ -46,6 +56,11 @@ function draw(){
         snake[0].y < 0){
         alert("Game over");
         clearInterval(interval);
+        if(bestScoreValue<scoreValue){
+            bestScoreValue = scoreValue;
+            bestScore.innerText = bestScoreValue;
+            localStorage.setItem('bestScoreValue',bestScoreValue);
+        }
    } else{
     for (var i = 0 ; i <snake.length;i++){
         var posX = snake[i].x;
@@ -58,6 +73,8 @@ function draw(){
         food.x=Math.floor(Math.random()*19);
         food.y=Math.floor(Math.random()*19);
         ctxt.drawImage(food_image, width*food.x, height*food.y, width, height);
+        scoreValue++;
+        score.innerText = scoreValue;
     }else{
         if(direction == 'RIGHT'){
         var headX = snake[0].x;
