@@ -4,8 +4,26 @@ var width= canvas.width / 19;
 var height = canvas.height / 19;
 var snake;
 
+var body_image = new Image();
+body_image.src = 'body.png';
+
+var right_head_image = new Image();
+right_head_image.src = 'right-head.png';
+
+
+var left_head_image = new Image();
+left_head_image.src = 'left-head.png';
+
+var up_head_image = new Image();
+up_head_image.src = 'up-head.png';
+
+
+var down_head_image = new Image();
+down_head_image.src = 'down-head.png';
+
 var food_image = new Image();
 food_image.src = 'food.png';
+
 var food = {};
 food_image.onload = () => loadFood();
 
@@ -55,8 +73,22 @@ function drawSnake(){
     for (var i = 0 ; i < snake.length; i++) {
         var posX = snake[i].x;
         var posY = snake[i].y;
-        ctxt.fillStyle = i == 0 ? 'green' : 'yellow';
-        ctxt.fillRect(posX, posY, width, height)
+        if (i == 0) {
+            if(direction == 'RIGHT'){
+                ctxt.drawImage(right_head_image, posX, posY, width, height);
+            } else if(direction == 'UP'){
+                ctxt.drawImage(up_head_image, posX, posY, width, height);
+            } else if(direction == 'DOWN'){
+                ctxt.drawImage(down_head_image, posX, posY, width, height);
+            } else if(direction == 'LEFT'){
+                ctxt.drawImage(left_head_image, posX, posY, width, height);
+            } 
+            
+        } else {
+              ctxt.drawImage(body_image, posX, posY, width, height);
+            // ctxt.fillRect(posX, posY, width, height)
+        }
+        
      }
 }
 
