@@ -145,7 +145,11 @@ function updateBestScore() {
 
 //Game over conditions
 function gameOverConditions() {
-    return snake[0].x >= 19*width || snake[0].x < 0 || snake[0].y >= 19*height || snake[0].y < 0;
+    return snake[0].x >= 19*width || snake[0].x < 0 || snake[0].y >= 19*height || snake[0].y < 0 || isCollision();
+}
+
+function isCollision(){
+    return JSON.stringify(snake.slice(1)).includes(JSON.stringify(snake[0]));
 }
 
 //Control Movements
