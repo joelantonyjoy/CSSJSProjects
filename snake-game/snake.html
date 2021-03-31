@@ -16,6 +16,9 @@
         justify-content: space-evenly;
         align-items: center;
     }
+    .gameName{
+        margin-top: 32px;
+    }
     #canvas{
         width: 608px;
         height: 608px;
@@ -39,7 +42,7 @@
     }
 </style>
 <body>
-    <h1>Snake Game</h1>
+    <h1 class="gameName">Snake Game</h1>
     <div class="scoreboard">
         <div class="scoreCard">
             <h3>Score</h3>
@@ -49,8 +52,6 @@
             <h3>Best</h3>
             <p id="bestScore">0</p>
         </div>
-        <!-- <h3>Score : <span id="score">0</span></h3>
-        <h3>High Score : <span id="highScore">0</span></h3> -->
     </div>
     
     <canvas id="canvas" width="608" height="608"></canvas>
