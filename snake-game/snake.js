@@ -27,30 +27,33 @@ food_image.src = 'food.png';
 var food = {};
 food_image.onload = () => loadFood();
 
-initializeSnake();
 document.addEventListener('keydown',moveSnake);
-
-var direction = 'RIGHT';
-var scoreValue = 0;
 var score = document.getElementById('score');
 var bestScore = document.getElementById('bestScore');
-var bestScoreValue = 0;
-loadBestScorefromLocalStorage();
-var gameInterval = setInterval(draw,150);
-draw();
-function draw() {
-    if (gameOverConditions()) {
-        updateBestScore();
-        gameOverPopup();
-        clearInterval(gameInterval);
-   } else {
-       drawSnake();
-       if (isFoodEaten()) {
-            eatFoodAndUpdateScore();
-        } else {
-            controlMovements();
-        }  
-    }
+
+var direction,scoreValue,bestScoreValue;
+startGame();
+function startGame(){
+    scoreValue = 0;
+    bestScoreValue = 0;
+    loadBestScorefromLocalStorage();
+    direction = 'RIGHT';
+    initializeSnake();
+    var gameInterval = setInterval(draw,150);
+    function draw() {
+        if (gameOverConditions()) {
+            updateBestScore();
+            gameOverPopup();
+            clearInterval(gameInterval);
+       } else {
+           drawSnake();
+           if (isFoodEaten()) {
+                eatFoodAndUpdateScore();
+            } else {
+                controlMovements();
+            }  
+        }
+    }  
 }
 
 //Initialize Snake
@@ -182,5 +185,22 @@ function controlMovements(){
 }
 
 function gameOverPopup() {
-    alert("Game over!!!!\n\nYour Score is " + scoreValue + "\nBest Score : " + bestScoreValue);
+    var popup = document.getElementById('gameOverPopup');
+    popup.style.display = "flex";
+    popup.children[1].children[0].innerText = scoreValue;
+    popup.children[2].children[0].innerText = bestScoreValue;
+    var container = document.getElementsByClassName('container')[0];
+    container.style.opacity = 0.3;
+    ctxt.clearRect(0,0,608,608);
+    // alert("Game over!!!!\n\nYour Score is " + scoreValue + "\nBest Score : " + bestScoreValue);
+}
+
+function loadNewGame(){
+    var popup = document.getElementById('gameOverPopup');
+    popup.style.display = "none";
+    var container = document.getElementsByClassName('container')[0];
+    container.style.opacity = 1;
+    initializeSnake();
+    startGame();
+    loadFood()
 }
