@@ -5,24 +5,24 @@ var height = canvas.height / 19;
 var snake;
 
 var body_image = new Image();
-body_image.src = 'body.png';
+body_image.src = 'images/body.png';
 
 var right_head_image = new Image();
-right_head_image.src = 'right-head.png';
+right_head_image.src = 'images/right-head.png';
 
 
 var left_head_image = new Image();
-left_head_image.src = 'left-head.png';
+left_head_image.src = 'images/left-head.png';
 
 var up_head_image = new Image();
-up_head_image.src = 'up-head.png';
+up_head_image.src = 'images/up-head.png';
 
 
 var down_head_image = new Image();
-down_head_image.src = 'down-head.png';
+down_head_image.src = 'images/down-head.png';
 
 var food_image = new Image();
-food_image.src = 'food.png';
+food_image.src = 'images/food.png';
 
 var food = {};
 food_image.onload = () => loadFood();
