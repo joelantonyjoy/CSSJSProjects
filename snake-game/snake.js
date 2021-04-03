@@ -201,7 +201,6 @@ function loadNewGame(){
     var container = document.getElementsByClassName('container')[0];
     container.style.opacity = 1;
     score.innerText = 0;
-    initializeSnake();
     startGame();
     loadFood()
 }
