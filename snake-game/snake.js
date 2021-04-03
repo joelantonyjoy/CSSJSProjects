@@ -31,29 +31,44 @@ document.addEventListener('keydown',moveSnake);
 var score = document.getElementById('score');
 var bestScore = document.getElementById('bestScore');
 
-var direction,scoreValue,bestScoreValue;
+var direction,scoreValue,bestScoreValue,gameInterval,gamePaused;
+
 startGame();
 function startGame(){
     scoreValue = 0;
     bestScoreValue = 0;
     loadBestScorefromLocalStorage();
     direction = 'RIGHT';
+    gamePaused = false;
     initializeSnake();
-    var gameInterval = setInterval(draw,150);
-    function draw() {
-        if (gameOverConditions()) {
-            updateBestScore();
-            gameOverPopup();
-            clearInterval(gameInterval);
-       } else {
-           drawSnake();
-           if (isFoodEaten()) {
-                eatFoodAndUpdateScore();
-            } else {
-                controlMovements();
-            }  
-        }
-    }  
+    gameInterval = setInterval(draw,150);
+}
+
+//Draw Game
+function draw() {
+    if (gameOverConditions()) {
+        updateBestScore();
+        gameOverPopup();
+        clearInterval(gameInterval);
+   } else {
+       drawSnake();
+       if (isFoodEaten()) {
+            eatFoodAndUpdateScore();
+        } else {
+            controlMovements();
+        }  
+    }
+}
+
+//Pause Game
+function pauseGame(){
+    if(gamePaused == true){
+        gamePaused = false;
+        gameInterval = setInterval(draw,150);
+    } else {
+        gamePaused = true;
+        clearInterval(gameInterval);
+    }   
 }
 
 //Initialize Snake
@@ -85,8 +100,7 @@ function drawSnake(){
                 ctxt.drawImage(down_head_image, posX, posY, width, height);
             } else if(direction == 'LEFT'){
                 ctxt.drawImage(left_head_image, posX, posY, width, height);
-            } 
-            
+            }
         } else {
               ctxt.drawImage(body_image, posX, posY, width, height);
             // ctxt.fillRect(posX, posY, width, height)
@@ -105,6 +119,8 @@ function moveSnake(e) {
         direction = 'RIGHT';
     } else if (e.keyCode == 40 && direction != 'UP') {
         direction = 'DOWN';
+    } else if (e.keyCode == 32) {
+        pauseGame();
     }
 }
 
