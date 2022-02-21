@@ -1,7 +1,7 @@
 var canvas = document.getElementById("canvas");
 var ctxt = canvas.getContext("2d");
-var width = canvas.width / 19;
-var height = canvas.height / 19;
+var width = canvas.width / 20;
+var height = canvas.height / 20;
 var snake;
 
 var body_image = new Image();
@@ -141,8 +141,8 @@ function loadBestScorefromLocalStorage() {
 
 //Load food at random position
 function loadFood() {
-  food.x = Math.floor(Math.random() * 19);
-  food.y = Math.floor(Math.random() * 19);
+  food.x = Math.floor(Math.random() * 20);
+  food.y = Math.floor(Math.random() * 20);
   ctxt.drawImage(food_image, width * food.x, height * food.y, width, height);
 }
 
@@ -170,9 +170,9 @@ function updateBestScore() {
 //Game over conditions
 function gameOverConditions() {
   return (
-    snake[0].x >= 19 * width ||
+    snake[0].x >= 20 * width ||
     snake[0].x < 0 ||
-    snake[0].y >= 19 * height ||
+    snake[0].y >= 20 * height ||
     snake[0].y < 0 ||
     isCollision()
   );
@@ -218,7 +218,7 @@ function gameOverPopup() {
   popup.children[1].children[0].innerText = scoreValue;
   popup.children[2].children[0].innerText = bestScoreValue;
   overlay.style.display = "block";
-  ctxt.clearRect(0, 0, 608, 608);
+  ctxt.clearRect(0, 0, 320, 320);
   // alert("Game over!!!!\n\nYour Score is " + scoreValue + "\nBest Score : " + bestScoreValue);
 }
 
