@@ -6,6 +6,7 @@
 body {
   height: 100vh;
   width: 100vw;
+  user-select: none;
 }
 .container {
   display: flex;
@@ -19,8 +20,8 @@ body {
   margin-top: 32px;
 }
 #canvas {
-  width: 608px;
-  height: 608px;
+  width: 320px;
+  height: 320px;
   border: 1px solid black;
   /* background:url('grid.png'); */
   /* background-size: contain; */
@@ -28,8 +29,9 @@ body {
 }
 .scoreboard {
   display: flex;
-  width: 608px;
-  justify-content: space-between;
+  width: 100%;
+  max-width: 320px;
+  justify-content: space-evenly;
   padding-bottom: 16px;
 }
 .scoreCard {
@@ -49,8 +51,8 @@ body {
   border: 1px solid white;
   padding: 32px;
   z-index: 2;
-  height: 100vh;
-  width: 100vw;
+  height: 40vh;
+  width: 90vw;
   max-width: 320px;
   max-height: 320px;
   background-color: rgba(0, 0, 0, 0.397);
@@ -82,4 +84,21 @@ body {
 .newgame:hover {
   background: rgb(8, 94, 8);
   color: white;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 8px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+.key {
+  border: 1px solid black;
+  margin: 4px;
+  padding: 6px;
+  width: 64px;
+  font-size: 14px;
 }

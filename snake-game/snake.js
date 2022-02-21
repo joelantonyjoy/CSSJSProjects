@@ -25,6 +25,20 @@ food_image.src = "images/food.png";
 var food = {};
 food_image.onload = () => loadFood();
 
+const keyDirectionMap = {
+  LEFT: 37,
+  UP: 38,
+  RIGHT: 39,
+  DOWN: 40,
+  PAUSE: 32,
+};
+
+let controlKeys = [...document.querySelectorAll(".key")];
+
+controlKeys.forEach((key) => {
+  let e = { keyCode: keyDirectionMap[key.dataset.direction] };
+  key.addEventListener("click", () => moveSnake(e));
+});
 document.addEventListener("keydown", moveSnake);
 var score = document.getElementById("score");
 var bestScore = document.getElementById("bestScore");
