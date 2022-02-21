@@ -4,10 +4,16 @@
   box-sizing: border-box;
 }
 body {
+  height: 100vh;
+  width: 100vw;
+}
+.container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  height: 100%;
+  width: 100%;
 }
 .gameName {
   margin-top: 32px;
@@ -37,16 +43,32 @@ body {
 #gameOverPopup {
   display: none;
   position: absolute;
-  padding: 64px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid white;
+  padding: 32px;
   z-index: 2;
-  width: 608px;
-  height: 40vh;
-  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  max-width: 320px;
+  max-height: 320px;
+  background-color: rgba(0, 0, 0, 0.397);
   color: #ffffff;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  transition: all 3s ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(0, 0, 0);
 }
 .newgame {
   padding: 8px 16px;
