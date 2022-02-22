@@ -96,9 +96,18 @@ body {
   text-align: center;
 }
 .key {
-  border: 1px solid black;
+  border: 3px solid #acacac;
+  background: #cacaca;
   margin: 4px;
   padding: 6px;
   width: 64px;
-  font-size: 14px;
+  font-size: 20px;
+}
+
+.key:hover {
+  background: #a3a2a2;
+}
+
+.space-key-container {
+  margin-top: 32px;
 }
